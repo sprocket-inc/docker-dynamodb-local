@@ -1,6 +1,6 @@
 # dynamodb-local
 
-Local DynamoDB server for development
+Local DynamoDB server for development (based on Alpine Linux)
 
 ## Usage
 
