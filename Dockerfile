@@ -18,8 +18,9 @@ RUN cd sqlite4java/ant; ~/lib/gant/bin/gant dist
 FROM openjdk:8-jre-alpine
 MAINTAINER Minoru Nakata <minoru@sprocket.bz>
 
+ENV DDB_VERSION=2017-02-16
 RUN apk add --no-cache --no-progress --virtual .deps curl && \
-  curl -sL http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz | tar xz && \
+  curl -sL http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_${DDB_VERSION}.tar.gz | tar xz && \
   apk del .deps
 COPY --from=build-env /home/groovy/sqlite4java/build/dist/libsqlite4java-linux-amd64.so /DynamoDBLocal_lib
 
